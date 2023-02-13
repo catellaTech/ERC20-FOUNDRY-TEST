@@ -1,0 +1,6 @@
+MY_TOKEN_TEST:testAccess() (gas: 23177)
+MY_TOKEN_TEST:testApproval() (gas: 92303)
+MY_TOKEN_TEST:testBurn() (gas: 97874)
+MY_TOKEN_TEST:testCreateTokens() (gas: 64578)
+MY_TOKEN_TEST:testCreateTokensAgain() (gas: 106951)
+MY_TOKEN_TEST:testTransferFrom() (gas: 101829)
