@@ -77,7 +77,7 @@ contract MY_TOKEN_TEST is Test {
         vm.stopPrank();
     }
 
-    function testCreateTokensAgain() public {
+    function testCreateMoreTokens() public {
         testTransferFrom();
 
         vm.prank(tony);
