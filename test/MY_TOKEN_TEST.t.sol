@@ -11,35 +11,36 @@ contract MY_TOKEN_TEST is Test {
     address tony = vm.addr(1);
     address loki = vm.addr(2);
     
-
     function setUp() public {
         myToken = new MY_TOKEN(tony);
-    }
 
-    function testAccess() public {
-        // access to the name
-        assertEq(myToken.name(),"Rather");
-        
-        // access to the symbol
-        assertEq(myToken.symbol(),"RTH");
-        
-        // access to  decimals
-        assertEq(myToken.decimals(), 18);
-       
-        // access to supply
-        assertEq(myToken.totalSupply(), 0);
-
-        // access to owner
-        assertEq(myToken.owner(), tony);
-    }
-
-    function testCreateTokens() public {
+        // Create Tokens
         vm.startPrank(tony);
         myToken.crearTokens();
         uint balance = myToken.balanceOf(tony);
         vm.stopPrank();
         assertEq(balance, 100e18);
+        
+        // approve tokens to loki
+        vm.prank(tony);
+        bool success = myToken.approve(loki, 50e18);// Notacion cientifica: 50e18
+        assertTrue(success);
+    }
+    
+    function testAccess() public {
+        // access to the name
+        assertEq(myToken.name(),"Rather");
+        // access to the symbol
+        assertEq(myToken.symbol(),"RTH");
+        // access to  decimals
+        assertEq(myToken.decimals(), 18);
+        // access to supply
+        assertEq(myToken.totalSupply(), 100e18);
+        // access to owner
+        assertEq(myToken.owner(), tony);
+    }
 
+    function testExpectToRevertTokens() public {
         // We expect revert with another user
         vm.startPrank(loki);
         vm.expectRevert("You're not the owner");
@@ -47,19 +48,12 @@ contract MY_TOKEN_TEST is Test {
         vm.stopPrank();
     }
 
-    function testApproval() public {
-        // Mint the tokens
-        testCreateTokens();
-        vm.prank(tony);
-        bool success = myToken.approve(loki, 50e18);// Notacion cientifica: 59e18
-        assertTrue(success);
-
+    function testAllowance() public {
         assertEq(myToken.allowance(tony,loki), 50e18);
         vm.stopPrank();
     }
 
     function testTransferFrom() public {
-        testApproval();
         vm.startPrank(loki);
         bool succesTransferFrom = myToken.transferFrom(tony, loki, 50e18);
         assertTrue(succesTransferFrom);
@@ -76,7 +70,6 @@ contract MY_TOKEN_TEST is Test {
         assertEq(FinalLokiBalance, 0);
         vm.stopPrank();
     }
-
     function testCreateMoreTokens() public {
         testTransferFrom();
 
