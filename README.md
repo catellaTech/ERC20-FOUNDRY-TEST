@@ -1,4 +1,9 @@
 <img src="./iron-man.jpg">
+<!-- [![Build Status](https://travis-ci.org/mpaland/printf.svg?branch=master)](https://travis-ci.org/mpaland/printf) -->
+
+<a href="https://github.com/catellaTech/ERC20-FOUNDRY-TEST/actions/workflows/test.yml"><img src="https://api.travis-ci.org/catellaTech/printf.svg?branch=main"></a>
+
+
 <a href="https://github.com/catellaTech" target="_blank">
     <img alt="Author" src="https://img.shields.io/badge/made%20by-CatellaTech-blueviolet?style=flat-square">
   </a>
