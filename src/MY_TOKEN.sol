@@ -7,6 +7,7 @@ contract MY_TOKEN is ERC20 {
     address public owner;
     // Constructor del Smart Contract
     constructor(address _owner) ERC20("Rather", "RTH") {
+        require(owner != address(0));
         owner = _owner;
     }
 

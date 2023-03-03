@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.4;
 
 import "forge-std/Test.sol";
 import "../src/MY_TOKEN.sol";
@@ -8,8 +8,8 @@ contract MY_TOKEN_TEST is Test {
     MY_TOKEN public myToken;
 
     // Two accounts
-    address tony = vm.addr(1);
-    address loki = vm.addr(2);
+    address  tony = vm.addr(1);
+    address  loki = vm.addr(2);
     
     function setUp() public {
         myToken = new MY_TOKEN(tony);

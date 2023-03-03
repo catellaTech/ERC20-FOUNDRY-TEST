@@ -1,0 +1,25 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "<img src=\"./iron-man.jpg\"> <!-- [![Build Status](https://travis-ci.org/mpaland/printf.svg?branch=master)](https://travis-ci.org/mpaland/printf) -->",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "solc": "solc-select use 0.8.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catellaTech/ERC20-FOUNDRY-TEST.git"
+  },
+  "keywords": [],
+  "author": "catellaTech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catellaTech/ERC20-FOUNDRY-TEST/issues"
+  },
+  "homepage": "https://github.com/catellaTech/ERC20-FOUNDRY-TEST#readme"
+}
